@@ -12,6 +12,12 @@
 (add-hook 'c++-mode-hook 'linum-mode)
 (setq linum-format "%3d ")
 
+;;; auto-fill-mode is a minor mode, so (auto-fill-mode 1) will not active it
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'c++-mode-hook 'turn-on-auto-fill)
+(add-hook 'c-mode-hook 'turn-on-auto-fill)
+(setq default-fill-column 80)
+
 ;;; winner mode
 (winner-mode)
 
