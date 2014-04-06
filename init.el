@@ -1,4 +1,4 @@
-;;; Backup
+;;; backup
 (setq
   backup-by-copying t 
   backup-directory-alist '(("." . "~/.backup"))
@@ -6,6 +6,14 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+;;; line number
+(add-hook 'org-mode-hook 'linum-mode)
+(add-hook 'c++-mode-hook 'linum-mode)
+(setq linum-format "%3d ")
+
+;;; winner mode
+(winner-mode)
 
 (require 'package)
 
@@ -16,10 +24,32 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
-(require 'init-evil)
 (require 'init-org)
-(require 'init-company)
+
+(require 'init-key-chord)
+(require 'init-evil)
+(require 'init-evil-leader)
+
 (require 'init-yasnippet)
 (require 'init-flycheck)
 (require 'init-helm)
+(require 'init-smex)
+(require 'init-window-numbering)
 
+;; TODO
+; (require 'init-magit)
+
+;; TODO
+; (require 'init-auto-complete)
+; (require 'init-auto-complete-clang)
+
+;; TODO
+; (require 'init-helm-gtags)
+
+
+(require 'init-projectile)
+(require 'init-helm-projectile)
+
+
+(provide 'init)
+;;; init.el ends here
